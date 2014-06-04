@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+
+<html>
+
+
+
+<script
+	src='jquery.min.js'></script>
+
+
+<script>
+
+	function search (count) {
+
+
+		for (i = 0; i < count; i++){
+			random_string = randomString();
+			target_url = "https://www.bing.com/search?q="+random_string;
+			
+
+			$.ajax({
+				  url: target_url,
+				  type: 'post',
+				  dataType: "jsonp",
+				
+				  success: function (data) {
+				    alert("sdsd");
+				  },
+				  error: function (xhr, desc, err) {
+				    
+				  }
+			});
+		}
+
+	}
+
+	function randomString() {
+		var chars = "0123456789ABCDEFGHIJKLMNOPQRSTUVWXTZabcdefghiklmnopqrstuvwxyz";
+		var string_length = 8;
+		var randomstring = '';
+		for (var i=0; i<string_length; i++) {
+			var rnum = Math.floor(Math.random() * chars.length);
+			randomstring += chars.substring(rnum,rnum+1);
+		}
+	
+		return randomstring;
+	}
+	
+
+</script>
+
+
+
+
+
+<body>
+
+	I hope Microsoft Bing won't get mad at me.
+
+<button onclick = "search(1)">Do 1 search</button> <br>
+
+<button onclick = "search(2)">Do 2 search</button> <br>
+
+<button onclick = "search(5)">Do 5 search</button> <br>
+
+<button onclick = "search(10)">Do 10 search</button> <br>
+
+<button onclick = "search(20)">Do 20 search</button> <br>
+
+<button onclick = "search(30)">Do 30 search</button> <br>
+
+</body>
+
+</html>
